@@ -36,7 +36,6 @@ PR is welcome to support more settings!
 Here's an example of how to use AudioCodec-Hub to encode and decode one single file:
 
 ```python
-import torch
 from audiocodec import AudioCodec
 
 NQ = 8
@@ -47,7 +46,7 @@ model_name = "encodec_24khz"
 audio_codec = AudioCodec(model_name)
 
 # Encode an audio file
-f_in_enc = "input.wav"
+f_in_enc = "test_wavs/61_70970_000007_000001.wav"
 f_out_enc = "encoded.json"
 audio_codec.encode_file(f_in_enc, f_out_enc, n_q=NQ, codebook_offset=CODEBOOK_OFFSET)
 
@@ -60,7 +59,6 @@ print("Encoding and decoding completed successfully!")
 
 ### Encoding and Decoding an Entire Directory in Batch Mode
 ```python
-import torch
 from audiocodec import AudioCodec
 
 NQ = 8
@@ -72,13 +70,13 @@ model_name = "encodec_24khz"
 audio_codec = AudioCodec(model_name)
 
 # Encode all audio files in a directory (Support batch mode)
-dir_in_enc = "input_directory"
-dir_out_enc = "encoded_directory"
-audio_codec.encode_directory(dir_in_enc, dir_out_enc, n_q=NQ, codebook_offset=CODEBOOK_OFFSET, batch_size=BATCH_SIZE)
+dir_in_enc = "test_wavs"
+dir_out_enc = "encoded_dir"
+audio_codec.encode_dir(dir_in_enc, dir_out_enc, n_q=NQ, codebook_offset=CODEBOOK_OFFSET, batch_size=BATCH_SIZE)
 
 # Decode all encoded audio files in a directory (Currently not supporting batch mode)
-dir_out_dec = "decoded_directory"
-audio_codec.decode_directory(dir_out_enc, dir_out_dec, codebook_offset=CODEBOOK_OFFSET)
+dir_out_dec = "decoded_dir"
+audio_codec.decode_dir(dir_out_enc, dir_out_dec, codebook_offset=CODEBOOK_OFFSET)
 
 print("Encoding and decoding completed successfully!")
 ```
