@@ -31,6 +31,11 @@ PR is welcome to support more settings!
 - [ ] Provide a Colab demo.
 - [ ] Make it a PyPI pacakge. 
 
+## Install
+```bash
+pip install git+https://github.com/ga642381/AudioCodec-Hub.git
+```
+
 ## Usage
 ### Encoding and Decoding One Sinfle File
 Here's an example of how to use AudioCodec-Hub to encode and decode one single file:
