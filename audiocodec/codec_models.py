@@ -142,7 +142,7 @@ class AudioDec(CodecModel):
         3. Load the selected model based on sample rate.
         """
         # init git module
-        cur_repo = git.Repo(".")
+        cur_repo = git.Repo(Path(__file__).parent.parent)
         sm = cur_repo.submodules[0]
         if not sm.module_exists():
             print("[INFO] Init AudioDec repo")
