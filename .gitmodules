@@ -1,0 +1,3 @@
+[submodule "audiocodec/AudioDec"]
+	path = audiocodec/AudioDec
+	url = git@github.com:ga642381/AudioDec.git

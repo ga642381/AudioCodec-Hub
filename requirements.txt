@@ -1,0 +1,12 @@
+GitPython
+librosa
+numpy
+PyYAML
+scikit_learn
+soundfile
+requests
+tqdm
+transformers
+descript-audio-codec
+torch
+torchaudio
