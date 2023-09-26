@@ -172,13 +172,14 @@ class AudioDec(CodecModel):
             self.sr, encoder_checkpoint, decoder_checkpoint = assign_model('libritts_v1')
         elif model_sr == "48khz":
             self.sr, encoder_checkpoint, decoder_checkpoint = assign_model('vctk_v1')
-            
+        
+        cwd = os.getcwd()
         os.chdir(self.repo_path) 
         audiodec = AudioDecModel(tx_device=device, rx_device=device)
         audiodec.load_transmitter(encoder_checkpoint)
         audiodec.load_receiver(encoder_checkpoint, decoder_checkpoint)
         self.model = audiodec
-        os.chdir(self.repo_path.parent.parent)
+        os.chdir(cwd)
 
     @torch.no_grad()
     def encode_tensor(self, x: torch.Tensor, padding_mask=None, n_q=None) -> torch.Tensor:
